@@ -1,0 +1,21 @@
+# spring-cloud-starter-netflix-eureka-client 의존성을 추가하면 application은 자동으로 eureka instance이자 eureka client로 등록이 된다.
+# https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/#registering-with-eureka
+eureka:
+  client:
+    serviceUrl:
+      # 기본 설정값이 지정되어있고 상황에 따라 변경해주면 된다.
+      defaultZone: http://localhost:8761/eureka
+      # 일반적으로 eureka client health check는 Spring Boot Actuator를 통해 진행한다. (enable 옵션으로 상태 propagation을 조정할 수 있다)
+      # com.netflix.appinfo.HealthCheckHandler를 통해서 원하는 요구사항에 따라 변경할 수 있다.
+    healthcheck:
+      enabled: true
+  instance:
+    instance-id: ${spring.application.name}:${spring.application._instance_id:${random.value}}
+    # instance에 대한 추가적으로 필요한 메타데이터를 넣어줄 수 있다.
+    # AWS에서 eureka 환경을 쓴다면 아래의 문서와 같이 AWS Ec2 instance에 대한 메타정보를 추가해줄 수 있다
+    # https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/#using-eureka-on-aws
+    # metadata-map:
+
+spring:
+  application:
+    name: eureka-client

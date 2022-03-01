@@ -1,0 +1,4 @@
+rootProject.name = 'spring-cloud-service-discovery'
+include('spring-cloud-netflix-eureka')
+include('spring-cloud-netflix-eureka-client')
+

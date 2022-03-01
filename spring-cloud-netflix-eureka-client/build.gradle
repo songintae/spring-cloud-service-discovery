@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    /**
+     * eureka client의 info 및 health는 기본적으로 Spring Actuator의 정보를 가져다가 사용한다.
+     * https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/#status-page-and-health-indicator
+     */
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
+
+
+
+}
+
+jar {
+    enabled = false
+}

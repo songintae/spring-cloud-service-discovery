@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+version '0.0.1-SNAPSHOT'
+
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-server'
+}
+
+jar {
+    enabled = false
+}

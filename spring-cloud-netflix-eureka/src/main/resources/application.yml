@@ -1,0 +1,16 @@
+server:
+  port: 8761
+
+# Eureka 서버를 resilient and available 를 보장하기 위해서는 Standalon Mode보단 Peer Awareness 방식으로 사용하는 것이 좋다.
+# https://docs.spring.io/spring-cloud-netflix/docs/current/reference/html/#spring-cloud-eureka-server-standalone-mode
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    # 유레카 서버 자기자신은 레지스트리에 등록하지 않도록 설정
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#  server:
+#    enable-self-preservation: false
